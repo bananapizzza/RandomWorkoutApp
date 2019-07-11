@@ -3,17 +3,14 @@ import './App.css';
 import AddTodo from "./containers/AddTodo";
 import Footer from "./components/Footer";
 import VisibleTodoList from "./containers/VisibleTodoList"
+import SelectWorkoutRandomly from "./containers/SelectWorkoutRandomly"
+
 const parse = require('url-parse')
 const url = parse(window.location.href, true);
 const pathname = url.pathname;
 console.log(pathname);
 
-const workoutArray = [
-    "Squat",
-    "Lunge",
-    "Push up",
-    "Burpee"
-];
+
 
 
 function Header() {
@@ -81,37 +78,43 @@ const WorkoutTodo = () => (
     </div>
 )
 
-class SelectWorkout extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isWorkoutSelected: false,
-            selectedWorkout: null
-        };
-        this.selectButtonClick = this.selectButtonClick.bind(this);
-    }
+const SelectWorkout = () => (
+    <div>
+        <SelectWorkoutRandomly/>
+    </div>
+)
 
-    selectButtonClick() {
-        this.setState(state => ({
-            isWorkoutSelected: true,
-            selectedWorkout: workoutArray[Math.floor(Math.random() * workoutArray.length)]
-        }));
-    }
-
-    render() {
-        let workout = this.state.selectedWorkout;
-        return (
-            <div>
-                <button onClick={this.selectButtonClick}>
-                    {this.state.isWorkoutSelected ? 'Select Again' : 'Select Workout Randomly'}
-                </button>
-                <p>
-                    {workout}
-                </p>
-            </div>
-        );
-    }
-}
+// class SelectWorkout extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             isWorkoutSelected: false,
+//             selectedWorkout: null
+//         };
+//         this.selectButtonClick = this.selectButtonClick.bind(this);
+//     }
+//
+//     selectButtonClick() {
+//         this.setState(state => ({
+//             isWorkoutSelected: true,
+//             selectedWorkout: workoutArray[Math.floor(Math.random() * workoutArray.length)]
+//         }));
+//     }
+//
+//     render() {
+//         let workout = this.state.selectedWorkout;
+//         return (
+//             <div>
+//                 <button onClick={this.selectButtonClick}>
+//                     {this.state.isWorkoutSelected ? 'Select Again' : 'Select Workout Randomly'}
+//                 </button>
+//                 <p>
+//                     {workout}
+//                 </p>
+//             </div>
+//         );
+//     }
+// }
 
 
 class App extends React.Component {

@@ -1,5 +1,5 @@
-import {SET_VISIBILITY_FILTER} from "../actions";
-import {VisibilityFilters} from "../actions";
+import {SET_VISIBILITY_FILTER} from "../actions/actions_todo";
+import {VisibilityFilters} from "../actions/actions_todo";
 
 
 const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
@@ -11,6 +11,6 @@ const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
         default:
             return state
     }
-}
+};
 
 export default visibilityFilter

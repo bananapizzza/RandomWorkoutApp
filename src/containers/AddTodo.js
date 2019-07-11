@@ -1,21 +1,21 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addTodo} from "../actions";
+import {addTodo} from "../actions/actions_todo";
 
 const AddTodo = ({dispatch}) => {
-    let input
+    let input;
     console.log("containers/AddTodo.js: AddTodo");
 
     return (
         <div>
             <form
                 onSubmit={e => {
-                    e.preventDefault()
+                    e.preventDefault();
                     if (!input.value.trim()) {
-                        return
+                        return;
                     }
-                    dispatch(addTodo(input.value))
-                    input.value = ''
+                    dispatch(addTodo(input.value));
+                    input.value = '';
                 }}
             >
                 <input ref={node => (input = node)} />

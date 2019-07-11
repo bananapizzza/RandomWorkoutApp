@@ -1,7 +1,7 @@
 import {
     ADD_TODO,
     TOGGLE_TODO,
-} from "../actions";
+} from "../actions/actions_todo";
 
 
 const todos = (state = [], action) => {
@@ -16,17 +16,17 @@ const todos = (state = [], action) => {
                     text: action.text,
                     completed: false
                 }
-            ]
+            ];
         case TOGGLE_TODO:
             return state.map(todo =>
                 todo.id === action.id ? {...todo, completed: !todo.completed} : todo
-            )
+            );
         default:
-            return state
+            return state;
     }
 }
 
-export default todos
+export default todos;
 
 
 
