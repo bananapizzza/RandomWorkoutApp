@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-
+import AddTodo from "./containers/AddTodo";
+import Footer from "./components/Footer";
+import VisibleTodoList from "./containers/VisibleTodoList"
 const parse = require('url-parse')
 const url = parse(window.location.href, true);
 const pathname = url.pathname;
@@ -62,7 +64,7 @@ class MenuBody extends React.Component {
         } else if (pathname === '/select_workout') {
             return (<SelectWorkout/>);
         } else if (pathname === '/workout_todo') {
-            return 'Workout To-Do';
+            return (<WorkoutTodo/>);
         } else if (pathname === '/calendar') {
             return 'Calendar';
         } else if (pathname === '/my_account') {
@@ -70,6 +72,14 @@ class MenuBody extends React.Component {
         }
     }
 }
+
+const WorkoutTodo = () => (
+    <div>
+        <AddTodo/>
+        <VisibleTodoList/>
+        <Footer/>
+    </div>
+)
 
 class SelectWorkout extends React.Component {
     constructor(props) {
