@@ -10,7 +10,7 @@ export const VisibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
+};
 
 //action creators
 export const addTodo = text => ({
@@ -18,14 +18,14 @@ export const addTodo = text => ({
         id: nextTodoId++,
         text
     }
-)
+);
 
 export const setVisibilityFilter = filter => ({
     type: SET_VISIBILITY_FILTER,
     filter
-})
+});
 
 export const toggleTodo = id => ({
     type: TOGGLE_TODO,
     id
-})
+});
