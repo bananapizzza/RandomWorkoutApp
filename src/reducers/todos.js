@@ -5,8 +5,6 @@ import {
 
 
 const todos = (state = [], action) => {
-    console.log("reducers/todos.js: todos");
-
     switch (action.type) {
         case ADD_TODO:
             return [

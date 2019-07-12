@@ -11,8 +11,6 @@ const pathname = url.pathname;
 console.log(pathname);
 
 
-
-
 function Header() {
     return (
         <h1><a href="/">Random Workout</a></h1>
@@ -70,6 +68,12 @@ class MenuBody extends React.Component {
     }
 }
 
+const SelectWorkout = () => (
+    <div>
+        <SelectWorkoutRandomly/>
+    </div>
+)
+
 const WorkoutTodo = () => (
     <div>
         <AddTodo/>
@@ -77,44 +81,6 @@ const WorkoutTodo = () => (
         <Footer/>
     </div>
 )
-
-const SelectWorkout = () => (
-    <div>
-        <SelectWorkoutRandomly/>
-    </div>
-)
-
-// class SelectWorkout extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             isWorkoutSelected: false,
-//             selectedWorkout: null
-//         };
-//         this.selectButtonClick = this.selectButtonClick.bind(this);
-//     }
-//
-//     selectButtonClick() {
-//         this.setState(state => ({
-//             isWorkoutSelected: true,
-//             selectedWorkout: workoutArray[Math.floor(Math.random() * workoutArray.length)]
-//         }));
-//     }
-//
-//     render() {
-//         let workout = this.state.selectedWorkout;
-//         return (
-//             <div>
-//                 <button onClick={this.selectButtonClick}>
-//                     {this.state.isWorkoutSelected ? 'Select Again' : 'Select Workout Randomly'}
-//                 </button>
-//                 <p>
-//                     {workout}
-//                 </p>
-//             </div>
-//         );
-//     }
-// }
 
 
 class App extends React.Component {

@@ -4,8 +4,6 @@ import {addTodo} from "../actions/actions_todo";
 
 const AddTodo = ({dispatch}) => {
     let input;
-    console.log("containers/AddTodo.js: AddTodo");
-
     return (
         <div>
             <form

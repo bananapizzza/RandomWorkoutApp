@@ -4,8 +4,6 @@ import TodoList from '../components/TodoList'
 import {VisibilityFilters} from "../actions/actions_todo";
 
 const getVisibleTodos = (todos, filter) => {
-    console.log("containers/VisibleTodoList.js: getVisibleTodos");
-
     switch(filter) {
         case VisibilityFilters.SHOW_ALL:
             return todos
