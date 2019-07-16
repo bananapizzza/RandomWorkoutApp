@@ -1,21 +1,15 @@
 import {CLICK_RANDOM_BUTTON} from "../actions/actions_selectWorkout";
+import {REQUEST_WORKOUT, RECEIVE_WORKOUT} from "../actions/actions_selectWorkout";
 
-const workoutArray = [
-    "Squat",
-    "Lunge",
-    "Push up",
-    "Burpee"
-];
-
-const getWorkout = () => (
-    workoutArray[Math.floor(Math.random() * workoutArray.length)]
-);
-
-const selectedWorkout = (state = "", action) => {
-    switch(action.type){
-        case CLICK_RANDOM_BUTTON:
-            console.log("click random button");
-            return getWorkout();
+const selectedWorkout = (state = {
+    isFetching: false,
+    name: ""
+}, action) => {
+    switch (action.type) {
+        case REQUEST_WORKOUT:
+            return {...state, isFetching: true};
+        case RECEIVE_WORKOUT:
+            return {...state, isFetching: false, name: action.workoutname};
         default:
             return state;
     }

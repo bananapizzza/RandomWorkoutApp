@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
-import {clickRandomButton} from "../actions/actions_selectWorkout";
+import {fetchWorkout} from "../actions/actions_selectWorkout";
 import SelectWorkout from "../components/SelectWorkout";
 
 const mapStateToProps = state => ({
-    selectedWorkout: state.selectedWorkout,
+    selectedWorkout: state.selectedWorkout.name,
 });
 
 const mapDispatchToProps = dispatch => ({
-   onClick: () => dispatch(clickRandomButton())
+   onClick: () => dispatch(fetchWorkout())
 });
 
 export default connect(
