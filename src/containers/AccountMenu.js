@@ -1,13 +1,20 @@
 import React from 'react';
-import Login from './Login';
+import Login from './LoginButton';
 import {connect} from 'react-redux';
+import LoginComponent from "../components/LoginComponent";
+import LoginButton from "./LoginButton";
 
 const AccountMenu = ({isLoggedIn}) => {
     //TODO: Make the screen for after login
-    if(isLoggedIn){
+    if (isLoggedIn) {
         return (<Login/>);
     } else {
-        return (<Login/>);
+        return (
+            <div>
+                <LoginComponent/>
+                <LoginButton/>
+            </div>
+        );
     }
 };
 

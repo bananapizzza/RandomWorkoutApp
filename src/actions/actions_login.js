@@ -32,3 +32,9 @@ export const fetchLoginResult = (username, password) => {
         );
     }
 };
+
+const submit = (values) => {
+    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+};
+
+export default submit;
