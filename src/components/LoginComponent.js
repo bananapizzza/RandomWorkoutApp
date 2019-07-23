@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 import PropTypes from 'prop-types';
-import submit from "../actions/actions_login";
+import loginInfoSubmit from "../actions/actions_login";
 
 const LoginComponent = (props) => {
     const {handleSubmit, pristine, reset, submitting} = props;
@@ -33,5 +33,5 @@ const LoginComponent = (props) => {
 
 export default reduxForm({
     form: 'LoginSubmit',
-    onSubmit: submit
+    onSubmit: loginInfoSubmit
 })(LoginComponent);

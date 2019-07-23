@@ -19,22 +19,47 @@ export const loginFail = (error) => ({
 });
 
 //TODO: Find out how to send data to the backend server
-export const fetchLoginResult = (username, password) => {
-    return function (dispatch) {
-        dispatch(requestLogin());
-        return fetch("http://localhost:5000/").then(result => {
-            if (result.status >= 400) {
-                dispatch(loginFail(result.json()));
-            }
-            return result.json();
-        }).then((json) =>
-            dispatch(loginSuccess(json))
-        );
-    }
+export const loginInfoSubmit = (values) => {
+    const username = values.username;
+    const password = values.password;
+    console.log(username + password);
+
+    return fetch("http://localhost:5000/check_login_info", {
+        method: "POST",
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(values)
+    }).then(result => {
+        console.log("result" + result);
+        if (result.status >= 400) {
+            //dispatch(loginFail(result.json()));
+        }
+        return result.json();
+    }).then((json) =>
+        window.alert(`You submitted:\n\n${JSON.stringify(json, null, 2)}`)
+    );
+    // return function (dispatch) {
+    //     console.log("requestLogin");
+    //     dispatch(requestLogin());
+    //     return fetch("http://localhost:5000/check_login_info", {
+    //         method: "POST",
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify(values)
+    //     }).then(result => {
+    //         console.log("getresult?");
+    //
+    //         if (result.status >= 400) {
+    //             dispatch(loginFail(result.json()));
+    //         }
+    //         return result.json();
+    //     }).then((json) =>
+    //         window.alert(`You submitted:\n\n${JSON.stringify(json, null, 2)}`)
+    //         //dispatch(loginSuccess(json))
+    //     );
+    // }
 };
 
-const submit = (values) => {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
-};
-
-export default submit;
+export default loginInfoSubmit;
