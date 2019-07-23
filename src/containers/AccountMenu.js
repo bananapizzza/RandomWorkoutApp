@@ -1,25 +1,30 @@
 import React from 'react';
-import Login from './LoginButton';
+import MyProfile from '../components/MyProfile';
 import {connect} from 'react-redux';
 import LoginComponent from "../components/LoginComponent";
 import LoginButton from "./LoginButton";
 
-const AccountMenu = ({isLoggedIn}) => {
+const AccountMenu = ({isLoggedIn, username, loginError}) => {
     //TODO: Make the screen for after login
     if (isLoggedIn) {
-        return (<Login/>);
+        return (<MyProfile username={username}/>);
     } else {
         return (
             <div>
                 <LoginComponent/>
                 <LoginButton/>
+                <p>
+                    {loginError}
+                </p>
             </div>
         );
     }
 };
 
 const mapStateToProps = state => ({
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.loginProcess.isLoggedIn,
+    username: state.loginProcess.username,
+    loginError: state.loginProcess.loginError
 });
 
 export default connect(

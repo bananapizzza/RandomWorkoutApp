@@ -1,7 +1,8 @@
-import {combineReducers} from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
-import selectedWorkout from './selectedWorkout'
+import {combineReducers} from 'redux';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
+import selectedWorkout from './selectedWorkout';
+import loginProcess from './loginProcess';
 import {reducer as formReducer} from 'redux-form';
 
 //todoApp can be written as below
@@ -16,5 +17,6 @@ export default combineReducers({
     todos,
     visibilityFilter,
     selectedWorkout,
-    form: formReducer
+    form: formReducer,
+    loginProcess
 })
