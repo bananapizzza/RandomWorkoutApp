@@ -1,4 +1,3 @@
-import {CLICK_RANDOM_BUTTON} from "../actions/actions_selectWorkout";
 import {REQUEST_WORKOUT, RECEIVE_WORKOUT} from "../actions/actions_selectWorkout";
 
 const selectedWorkout = (state = {
