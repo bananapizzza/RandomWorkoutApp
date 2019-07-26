@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import VisibleTodoList from "./containers/VisibleTodoList";
 import SelectWorkoutRandomly from "./containers/SelectWorkoutRandomly";
 import AccountMenu from "./containers/AccountMenu";
+import SignUpMenu from "./containers/SignUpMenu";
 
 const parse = require('url-parse');
 const url = parse(window.location.href, true);
@@ -65,6 +66,8 @@ class MenuBody extends React.Component {
             return 'Calendar';
         } else if (pathname === '/my_account') {
             return (<MyAccount/>);
+        } else if(pathname === '/sign_up') {
+            return (<SignUp/>)
         }
     }
 }
@@ -86,6 +89,12 @@ const WorkoutTodo = () => (
 const MyAccount = () => (
     <div>
         <AccountMenu/>
+    </div>
+);
+
+const SignUp = () => (
+    <div>
+        <SignUpMenu/>
     </div>
 );
 
