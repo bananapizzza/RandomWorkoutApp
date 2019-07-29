@@ -1,4 +1,4 @@
-import {REQUEST_SIGNUP, SIGNUP_FAIL, SIGNUP_SUCCESS} from "../actions/actions_signUp";
+import {REQUEST_SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS} from "../actions/actions_signUp";
 
 const signUpProcess = (state = {
     isSignUpProcessing: false,
@@ -7,11 +7,11 @@ const signUpProcess = (state = {
     signUpError: ""
 }, action) => {
     switch (action.type) {
-        case REQUEST_SIGNUP:
+        case REQUEST_SIGN_UP:
             return {...state, isSignUpProcessing: true};
-        case SIGNUP_FAIL:
+        case SIGN_UP_FAIL:
             return {...state, isSignUpProcessing: false, isSignedUp: false, signUpError: action.signUpError};
-        case SIGNUP_SUCCESS:
+        case SIGN_UP_SUCCESS:
             return {...state, isSignUpProcessing: false, isSignedUp: true, username: action.username};
         default:
             return state;

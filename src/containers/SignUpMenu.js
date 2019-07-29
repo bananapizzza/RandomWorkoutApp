@@ -22,7 +22,7 @@ const SignUpMenu = ({isSignedUp, username, signUpError}) => {
 const mapStateToProps = state => ({
     isSignedUp: state.signUpProcess.isSignedUp,
     username: state.signUpProcess.username,
-    loginError: state.signUpProcess.signUpError
+    signUpError: state.signUpProcess.signUpError
 });
 
 export default connect(
