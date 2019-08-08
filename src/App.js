@@ -66,7 +66,7 @@ class MenuBody extends React.Component {
             return 'Calendar';
         } else if (pathname === '/my_account') {
             return (<MyAccount/>);
-        } else if(pathname === '/sign_up') {
+        } else if (pathname === '/sign_up') {
             return (<SignUp/>)
         }
     }

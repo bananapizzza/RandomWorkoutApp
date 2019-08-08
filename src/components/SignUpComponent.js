@@ -9,18 +9,18 @@ const passwordValidate = value => {
     const regexForUpperCase = new RegExp("(?=.*[A-Z]).*");
     const regexForNumber = new RegExp("(?=.*[0-9]).*");
 
-    if(!regexForLength.test(value)){
+    if (!regexForLength.test(value)) {
         return 'Password must be more than 8 characters';
-    } else if(!regexForLowerCase.test(value)){
+    } else if (!regexForLowerCase.test(value)) {
         return 'Password must contain at least one lower case';
-    } else if(!regexForUpperCase.test(value)) {
+    } else if (!regexForUpperCase.test(value)) {
         return 'Password must contain at least one upper case';
-    } else if(!regexForNumber.test(value)){
+    } else if (!regexForNumber.test(value)) {
         return 'Password must contain at least one number';
     }
     return undefined;
 };
-const passwordMustMatch = (value, allValues) => value !== allValues.password? 'Passwords do not match' : undefined;
+const passwordMustMatch = (value, allValues) => value !== allValues.password ? 'Passwords do not match' : undefined;
 
 const renderField = ({input, label, placeholder, type, meta: {touched, error, warning}}) => (
     <div>

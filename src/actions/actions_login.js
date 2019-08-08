@@ -1,4 +1,5 @@
 import fetch from "cross-fetch";
+const HttpStatus = require('http-status-codes');
 
 //Action list
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
@@ -35,11 +36,12 @@ export const loginInfoSubmit = async (values, dispatch) => {
     });
 
     const result = await response.json();
-    if(response.status >= 400) {
-        dispatch(loginFail(result));
-    } else {
+
+    if (response.status === HttpStatus.OK) {
         dispatch(loginSuccess(values.username));
+        return;
     }
+    dispatch(loginFail(result));
 };
 
 export default loginInfoSubmit;

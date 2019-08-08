@@ -1,5 +1,7 @@
 import fetch from "cross-fetch";
 
+const HttpStatus = require('http-status-codes');
+
 //Action list
 export const REQUEST_SIGN_UP = 'REQUEST_SIGN_UP';
 export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
@@ -35,11 +37,11 @@ export const signUpInfoSubmit = async (values, dispatch) => {
     });
 
     const result = await response.json();
-    if(response.status >= 400) {
-        dispatch(signUpFail(result));
-    } else {
+    if (response.status === HttpStatus.OK) {
         dispatch(signUpSuccess(values.username));
+        return;
     }
+    dispatch(signUpFail(result));
 };
 
 export default signUpInfoSubmit;
