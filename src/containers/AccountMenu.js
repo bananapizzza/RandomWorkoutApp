@@ -16,6 +16,9 @@ const AccountMenu = ({isLoggedIn, username, loginError}) => {
                 <p>
                     {loginError}
                 </p>
+                <p>
+                    <a href='/sign_up'>Sign Up</a>
+                </p>
             </div>
         );
     }

@@ -3,6 +3,7 @@ import todos from './todos';
 import visibilityFilter from './visibilityFilter';
 import selectedWorkout from './selectedWorkout';
 import loginProcess from './loginProcess';
+import signUpProcess from './signUpProcess';
 import {reducer as formReducer} from 'redux-form';
 
 //todoApp can be written as below
@@ -12,11 +13,11 @@ import {reducer as formReducer} from 'redux-form';
 //         todos: todos(state.todos, action)
 //     }
 // }
-console.log("reducers/actions_todo.js: combineReducers");
 export default combineReducers({
     todos,
     visibilityFilter,
     selectedWorkout,
     form: formReducer,
-    loginProcess
+    loginProcess,
+    signUpProcess
 })
