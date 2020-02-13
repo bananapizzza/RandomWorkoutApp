@@ -6,6 +6,7 @@ import VisibleTodoList from "./containers/VisibleTodoList";
 import SelectWorkoutRandomly from "./containers/SelectWorkoutRandomly";
 import AccountMenu from "./containers/AccountMenu";
 import SignUpMenu from "./containers/SignUpMenu";
+import CalendarMenu from "./components/CalendarMenu";
 
 const parse = require('url-parse');
 const url = parse(window.location.href, true);
@@ -63,7 +64,7 @@ class MenuBody extends React.Component {
         } else if (pathname === '/workout_todo') {
             return (<WorkoutTodo/>);
         } else if (pathname === '/calendar') {
-            return 'Calendar';
+            return (<Calendar/>);
         } else if (pathname === '/my_account') {
             return (<MyAccount/>);
         } else if (pathname === '/sign_up') {
@@ -95,6 +96,12 @@ const MyAccount = () => (
 const SignUp = () => (
     <div>
         <SignUpMenu/>
+    </div>
+);
+
+const Calendar = () => (
+    <div>
+        <CalendarMenu/>
     </div>
 );
 
